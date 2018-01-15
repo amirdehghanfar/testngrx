@@ -11,19 +11,11 @@ import { ThreadListComponent } from './thread-list/thread-list.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { ThreadsService } from "./services/threads.service";
 import { StoreModule, ActionReducerMap } from "@ngrx/store";
-import { INITIAL_APPLICATION_STATE, ApplicationState } from 'app/store/application-state';
+import { INITIAL_APPLICATION_STATE, ApplicationState, reducers } from 'app/store/application-state';
 import { Action } from 'rxjs/scheduler/Action';
 import { StoreData } from 'app/store/store-data';
-import * as fromStoreData from "app/store/store-data";
+
 import * as _ from 'lodash';
-
-export interface State {
-  storeData: fromStoreData.StoreData;
-}
-
-export const reducers: ActionReducerMap<State> ={
-  storeData: fromStoreData.reducer
-}
 
 @NgModule({
   declarations: [

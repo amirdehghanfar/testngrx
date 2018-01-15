@@ -3,7 +3,7 @@ export interface UiState {
     currentThreadId: number;
 }
 
-export const INITIAL_UI_STATE: UiState ={
+export const INITIAL_UI_STATE: UiState = {
     userId: 1,
-    currentThreadId: undefined
+    currentThreadId: 1
 }

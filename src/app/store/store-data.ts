@@ -6,10 +6,10 @@ import { Action } from "@ngrx/store";
 import { AllUserData } from "../../../shared/to/all-user-data";
 import * as _ from "lodash";
 
-export interface StoreData{
-    participants:{[key: number]: Participant};
-    threads: {[key:number]: Thread};
-    messages: {[key:number]: Message}
+export interface StoreData {
+    participants: { [key: number]: Participant };
+    threads: { [key: number]: Thread };
+    messages: { [key: number]: Message }
 }
 
 export const INITIAL_STORE_DATA: StoreData = {
@@ -19,34 +19,34 @@ export const INITIAL_STORE_DATA: StoreData = {
 }
 
 export class LoadUserThreadsAction implements Action {
-    readonly type= StoreDataType.LOAD_USER_THREADS_ACTION;
-    constructor(public payload:AllUserData){
+    readonly type = StoreDataType.LOAD_USER_THREADS_ACTION;
+    constructor(public payload: AllUserData) {
     }
 }
 
-export enum StoreDataType{
+export enum StoreDataType {
     LOAD_USER_THREADS_ACTION = 'LOAD_USER_THREADS_ACTION'
 }
 
-export function reducer(state: StoreData = INITIAL_STORE_DATA,
-     action: LoadUserThreadsAction): StoreData{
-        console.log(action.type);
-         switch(action.type){
-             
-            case StoreDataType.LOAD_USER_THREADS_ACTION:
+export function reducer(state: StoreData,
+    action: LoadUserThreadsAction): StoreData {
+    console.log(action.type);
+    switch (action.type) {
+
+        case StoreDataType.LOAD_USER_THREADS_ACTION:
             {
                 const userData = action.payload
 
-                const newState= Object.assign({},state);
+                const newState = Object.assign({}, state);
 
-                newState.messages = _.keyBy(action.payload.messages,'id');
-                newState.participants=_.keyBy(action.payload.participants,'id');
-                newState.threads = _.keyBy(action.payload.threads,'id');
-                
+                newState.messages = _.keyBy(action.payload.messages, 'id');
+                newState.participants = _.keyBy(action.payload.participants, 'id');
+                newState.threads = _.keyBy(action.payload.threads, 'id');
+
                 return newState;
             }
 
-            default: state;
-         }
-         return state;
-     }
+        default:
+            return state;
+    }
+}

@@ -16,14 +16,14 @@ export class ThreadSectionComponent implements OnInit {
 
   constructor(private threadsService: ThreadsService,
     private store: Store<ApplicationState>) {
-    
+
     this.userName$ = store
-    .skip(1)
-    .map(this.mapStateToUserName);
+      .skip(1)
+      .map(this.mapStateToUserName);
   }
 
-  mapStateToUserName(state: ApplicationState):string{
-    return state.storeData.participants[1].name
+  mapStateToUserName(state: ApplicationState): string {
+    return state.storeData.participants[state.UiState.userId].name
   }
 
   ngOnInit() {
