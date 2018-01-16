@@ -1,11 +1,12 @@
-import { UiState, INITIAL_UI_STATE } from "app/store/ui-state";
-import { StoreData, INITIAL_STORE_DATA } from "app/store/store-data";
-import { ActionReducerMap } from "@ngrx/store";
-import * as fromStoreData from "app/store/store-data";
+import { UiState, INITIAL_UI_STATE } from 'app/store/ui-state';
+import { StoreData, INITIAL_STORE_DATA } from 'app/store/store-data';
+import { ActionReducerMap } from '@ngrx/store';
+import * as fromStoreData from 'app/store/store-data';
+import * as fromUiData from 'app/store/ui-state';
 
 
 export interface ApplicationState {
-    UiState:UiState;
+    UiState: UiState;
     storeData: fromStoreData.StoreData;
 }
 
@@ -20,5 +21,5 @@ export interface State {
 
 export const reducers: ActionReducerMap<ApplicationState> = {
     storeData: fromStoreData.reducer,
-    UiState: null
+    UiState: fromUiData.reducer
 }

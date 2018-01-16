@@ -1,10 +1,10 @@
-import { Participant } from "../../../shared/model/participant";
-import { Thread } from "../../../shared/model/thread";
-import { Message } from "../../../shared/model/message";
-import { ApplicationState, INITIAL_APPLICATION_STATE } from "app/store/application-state";
-import { Action } from "@ngrx/store";
-import { AllUserData } from "../../../shared/to/all-user-data";
-import * as _ from "lodash";
+import { Participant } from '../../../shared/model/participant';
+import { Thread } from '../../../shared/model/thread';
+import { Message } from '../../../shared/model/message';
+import { ApplicationState, INITIAL_APPLICATION_STATE } from 'app/store/application-state';
+import { Action } from '@ngrx/store';
+import { AllUserData } from '../../../shared/to/all-user-data';
+import * as _ from 'lodash';
 
 export interface StoreData {
     participants: { [key: number]: Participant };
